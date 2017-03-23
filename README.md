@@ -2,6 +2,8 @@
 
 A set of tools for working with 2dx audio containers.
 
+[Download here](https://github.com/mon/2dxTools/releases)
+
 ### 2dxDump
 
 `2dxDump infile.2dx`
