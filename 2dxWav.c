@@ -110,21 +110,21 @@ int convert_wav(char* inFile, char* outWav, int trimPreview) {
         assert(sox_add_effect(chain, e, &interm_signal, &out->signal) == SOX_SUCCESS);
         free(e);
     }
-
-    if (in->signal.channels != out->signal.channels) {
-        e = sox_create_effect(sox_find_effect("channels"));
-        assert(sox_effect_options(e, 0, NULL) == SOX_SUCCESS);
-        assert(sox_add_effect(chain, e, &interm_signal, &out->signal) == SOX_SUCCESS);
-        free(e);
-    }
     
     // Only use 10 seconds of audio for previews
     if(trimPreview) {
         e = sox_create_effect(sox_find_effect("trim"));
         args[0] = "0";
         args[1] = "10";
-        assert(sox_effect_options(e, 1, args) == SOX_SUCCESS);
+        assert(sox_effect_options(e, 2, args) == SOX_SUCCESS);
         assert(sox_add_effect(chain, e, &interm_signal, &in->signal) == SOX_SUCCESS);
+        free(e);
+    }
+
+    if (in->signal.channels != out->signal.channels) {
+        e = sox_create_effect(sox_find_effect("channels"));
+        assert(sox_effect_options(e, 0, NULL) == SOX_SUCCESS);
+        assert(sox_add_effect(chain, e, &interm_signal, &out->signal) == SOX_SUCCESS);
         free(e);
     }
 
