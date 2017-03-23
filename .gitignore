@@ -1,0 +1,5 @@
+sox/
+*.dll
+*.wav
+*.exe
+*.o
