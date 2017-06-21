@@ -33,6 +33,13 @@ the specific format required for 2dx files (MS-ADPCM wav with a block size of 25
 If the third argument is "preview", the file is clipped to exactly 10 seconds
 to comply with preview wav requirements.
 
+## Example: Custom song preview + game audio
+
+`2dxWavConvert mySong.ogg 0.wav`
+`2dxBuild 1234.2dx`
+`2dxWavConvert mySong_preview.ogg 0.wav preview`
+`2dxBuild 1234_pre.2dx`
+
 ## Tools to come:
 
 2dxTransfer - will work like 2dxMerge, but will take two input files, an output,
