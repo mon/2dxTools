@@ -37,7 +37,7 @@ void extract_2dx(char* path) {
         transfer_file(f, outFile, dxHeader.wavSize);
         fclose(outFile);
     }
-    
+    fclose(f);
     free(fileOffsets);
     //printf("Done!\n");
 }
