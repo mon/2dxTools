@@ -29,7 +29,7 @@ void extract_2dx(char* path) {
         
         // TODO verify 2DX9
         fread(&dxHeader, sizeof(dxHeader), 1, f);
-        snprintf(outPath, 256, "%d.wav", i);
+        snprintf(outPath, 256, "%s.wav", i);
         outFile = fopen(outPath, "wb");
         // seek to RIFF start
         fseek(f, fileOffsets[i]+dxHeader.headerSize, SEEK_SET);
